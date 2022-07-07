@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Finlandica:wght@400;700&family=Lora&display=swap');
+@layer setup, layout, theme;
+
+@layer setup {
+	* {
+		padding: 0;
+		margin: 0;
+	}
+
+	:root {
+		--accent: #318ce7;
+	}
+}
+
+@layer layout {
+	#Resume {
+		margin: auto;
+		width: 50%;
+		aspect-ratio: 70 / 99;
+		display: flex;
+	}
+
+	#Primary {
+		padding: 4em;
+		flex: 1;
+	}
+
+	#Aside {
+		padding: 1.5em;
+	}
+
+	.profile-image {
+		width: 10em;
+		aspect-ratio: 1;
+		cursor: pointer;
+		position: relative;
+	}
+
+	.experience-section {
+		min-height: 5em;
+		position: relative;
+	}
+
+	.edit {
+		position: absolute;
+		top: 0;
+		right: 0;
+		z-index: 1;
+		aspect-ratio: 1;
+		width: 2em;
+	}
+
+	.experience {
+		display: flex;
+		position: relative;
+		cursor: pointer;
+		transition: background 100ms;
+		border-radius: 5px;
+		margin-bottom: 1em;
+	}
+
+	.experience > :first-child {
+		flex: 2;
+		color: gray;
+	}
+
+	.experience > :last-child {
+		flex: 5;
+	}
+
+	.experience:hover {
+		background: rgba(255 0 0 / 0.2);
+	}
+
+	.heading {
+		margin: 1em 0;
+		position: relative;
+	}
+
+	.heading::after {
+		content: "";
+		position: absolute;
+		width: 100%;
+		top: 100%;
+		left: 0;
+	}
+}
+
+@layer theme {
+	:root {
+		font-family: "Finlandica", sans-serif;
+	}
+	h1, h2, h3 {
+		font-weight: 400;
+	}
+
+	h1, h2 {
+		text-align: right;
+	}
+
+	h1 {
+		font-size: 3em;
+	}
+
+	h2 {
+		font-size: 2em;
+		margin-bottom: 1em;
+	}
+
+	#Resume {
+		background: whitesmoke;
+		font-size: 1.1vw;
+	}
+
+	#About :is(h1, h2, p) {
+		transition: background 100ms;
+		border-radius: 5px;
+	}
+
+	#About :is(h1, h2, p):hover {
+		background: rgba(50 50 150 / 0.2);
+	}
+
+	#About {
+		cursor: pointer;
+	}
+
+	#Aside {
+		color: white;
+		background: #004C82;
+	}
+
+	.profile-image {
+		border-radius: 50%;
+		background: linear-gradient(45deg, blue, red);
+		border: solid 0.4em white;
+	}
+
+	.profile-image img {
+		border-radius: 50%;
+		width: 100%;
+		aspect-ratio: 1;
+		margin-bottom: -0.5em;
+	}
+
+	.profile-image:hover {
+		border-color: gray;
+	}
+
+	.profile-image img:hover {
+		filter: invert(25%);
+	}
+
+	dl:not(#Skills) {
+		display: grid;
+		gap: 2em 0;
+		grid-template-columns: max-content 1fr;
+		align-items: center;
+	}
+
+	dl img {
+		filter: invert(100%);
+		width: 2em;
+		margin-right: 1em;
+		aspect-ratio: 1;
+	}
+
+	dt {
+		font-size: 0.9em;
+		font-weight: bold;
+	}
+
+	dd {
+		font-size: 0.8em;
+		margin-left: 0.25em;
+	}
+
+	.icon {
+		position: relative;
+		margin-left: 2em;
+	}
+
+	.heading::after {
+		height: 2px;
+		background: var(--accent);
+	}
+
+	.experience-section {
+		position: relative;
+	}
+
+	.form {
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		left: 100%;
+		min-width: 15em;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75em;
+		color: white;
+		background: var(--accent);
+		padding: 1em 1.5em;
+		border-radius: 5px;
+	}
+
+	.form :is(input, textarea) {
+		width: 100%;
+	}
+
+	#Skills {
+		position: relative;
+		min-height: 2em;
+	}
+
+	.aside {
+		position: relative;
+	}
+
+	.aside > div {
+		border-radius: 5px;
+		transition: background 100ms;
+		cursor: pointer;
+	}
+
+	.aside > div:hover {
+		background: rgba(100 100 150 / 0.7);
+	}
+
+	.skill {
+		cursor: pointer;
+		margin-bottom: .5em;
+		border-radius: 5px;
+		transition: background 100ms;
+	}
+
+	.skill:hover {
+		background: rgba(255 0 0 / 0.6);
+	}
+}
